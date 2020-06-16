@@ -18,6 +18,8 @@
 #include "hardware_interface/types/hardware_interface_return_values.hpp"
 #include "hardware_interface/visibility_control.h"
 
+#include "robot_control_components/robot.hpp"
+
 namespace hardware_interface
 {
 
@@ -42,6 +44,9 @@ public:
   HARDWARE_INTERFACE_PUBLIC
   virtual
   hardware_interface_ret_t write() = 0;
+
+
+  robot_control_components::Robot robot_;
 };
 
 }  // namespace hardware_interface
