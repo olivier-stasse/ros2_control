@@ -1,0 +1,22 @@
+name: Real time ros2_control
+on:
+  pull_request:
+
+jobs:
+  build_and_test:
+    name: ament_copyright
+    runs-on: rt-linux-runner
+    steps:
+    - uses: actions/checkout@v1
+    - uses: ros-tooling/setup-ros@0.0.13
+    - uses: ros-tooling/action-ros-ci@0.0.17
+      with:
+        package-name: controller_interface controller_manager hardware_interface test_robot_hardware ros2_control
+        vcs-repo-file-url: |
+          https://raw.githubusercontent.com/${{ github.repository }}/${{ github.sha }}/ros2_control/ros2_control.repos
+          https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
+
+      with:
+        linter: copyright
+        package-name: controller_interface controller_manager hardware_interface test_robot_hardware
+
