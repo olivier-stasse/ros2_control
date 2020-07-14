@@ -1,9 +1,12 @@
 name: Real time ros2_control
 on:
   pull_request:
+  push:
+    branches:
+      - master
 
 jobs:
-  build_and_test:
+  build_and_rt_test:
     name: ament_copyright
     runs-on: rt-linux-runner
     steps:
