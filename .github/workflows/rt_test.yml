@@ -8,7 +8,7 @@ on:
 jobs:
   build_and_rt_test:
     name: ament_copyright
-    runs-on: [self-hosted,Linux,X64,rt-linux]
+    runs-on: self-hosted
     steps:
     - uses: actions/checkout@v1
     - uses: ros-tooling/setup-ros@0.0.13
